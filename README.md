@@ -77,13 +77,16 @@ python3 -c "import caffe; print(caffe.__file__)"
 ```
 docker rmi caffe-cpu
 docker builder prune
+docker rmi ubuntu:20.04
 ```
 
-The first command deletes the image and the second clears the build cache (several GB).
+- `docker rmi caffe-cpu` deletes the image you built.
+- `docker builder prune` clears the build cache (several GB). It also clears the cache of your other Docker builds.
+- `docker rmi ubuntu:20.04` deletes the Ubuntu base image. Skip it if another project uses Ubuntu 20.04.
 
 ## Not included
 
-- **GPU (CUDA) support.** CUDA stands for Compute Unified Device Architecture. The official GPU Dockerfile in Caffe's repository uses CUDA 8.0 with cuDNN 6 (CUDA Deep Neural Network library) on Ubuntu 16.04, which supports graphics cards only up to the Pascal generation, and its base image may no longer be available.
+- **GPU (CUDA) support.** CUDA stands for Compute Unified Device Architecture. The official GPU Dockerfile in Caffe's repository uses CUDA 8.0 with cuDNN 6 (CUDA Deep Neural Network library) on Ubuntu 16.04, which supports graphics cards only up to the Pascal generation, and its base image may no longer be available. The Medium post explains why it is not included here.
 - **Pinned Caffe version.** The Dockerfile clones the latest `BVLC/caffe` master.
 
 ## Credits
