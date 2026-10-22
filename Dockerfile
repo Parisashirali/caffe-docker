@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential cmake git pkg-config \
+    build-essential cmake git pkg-config ca-certificates \
     libprotobuf-dev protobuf-compiler libleveldb-dev libsnappy-dev \
     libhdf5-serial-dev libboost-all-dev libopenblas-dev \
     libgflags-dev libgoogle-glog-dev liblmdb-dev libopencv-dev \
